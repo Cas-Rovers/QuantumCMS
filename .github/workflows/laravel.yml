@@ -23,7 +23,7 @@ jobs:
     - name: Install NPM dependencies
       run: npm install
     - name: Build assets
-      run: npm run dev
+      run: npm run build
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
