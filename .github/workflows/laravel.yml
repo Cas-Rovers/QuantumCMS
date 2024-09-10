@@ -19,12 +19,14 @@ jobs:
         extensions: mbstring, intl, pdo_sqlite
         ini-values: post_max_size=256M, max_execution_time=180
         coverage: xdebug
-        tools: php-cs-fixer, pest
+        tools: php-cs-fixer, phpunit
     - uses: actions/checkout@v4
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
         node-version: '22.8.0'
+    - name: Install PHP CodeSniffer
+      run: composer require squizlabs/php_codesniffer --dev
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
