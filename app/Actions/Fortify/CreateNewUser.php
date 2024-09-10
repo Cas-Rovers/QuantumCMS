@@ -42,4 +42,5 @@
                 'password' => Hash::make($input['password']),
             ]);
         }
+
     }
