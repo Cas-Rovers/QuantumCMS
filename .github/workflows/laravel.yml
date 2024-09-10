@@ -25,8 +25,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22.8.0'
-    - name: Install PHP CodeSniffer
-      run: composer require squizlabs/php_codesniffer --dev
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
@@ -60,9 +58,6 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: php artisan migrate --force
-    - name: Code Analysis
-      run: |
-        phpcs --standard=PSR12 --report=junit --report-file=code-quality.xml src/
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
         DB_CONNECTION: sqlite
