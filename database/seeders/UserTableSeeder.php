@@ -27,7 +27,7 @@
                 'last_name' => 'Rovers',
                 'email' => 'casrovers@example.com',
                 'is_active' => true,
-            ]);
+            ])->assignRole('Super Admin');
 
              User::factory(500)->create([
                  'is_active' => false,
