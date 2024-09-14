@@ -23,10 +23,14 @@
         public function run(): void
         {
             User::factory()->create([
-                'name' => 'Test User',
-                'email' => 'test@example.com',
+                'first_name' => 'Cas',
+                'last_name' => 'Rovers',
+                'email' => 'casrovers@example.com',
+                'is_active' => true,
             ]);
 
-            // User::factory(10)->create();
+             User::factory(500)->create([
+                 'is_active' => false,
+             ]);
         }
     }
