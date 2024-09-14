@@ -7,7 +7,7 @@
     <title>{{ env('app_name') }} - @yield('title', 'Index')</title>
     @vite('resources/assets/admin/sass/app.scss')
 </head>
-<body>
+<body data-bs-theme="dark">
     @yield('content')
     @vite('resources/assets/admin/js/app.js')
 </body>
