@@ -85,7 +85,7 @@
         /**
          * Returns the URL of the user's profile avatar.
          *
-         * If the user has a media file named 'avatar', it returns the URL of the 'thumbnail' version of that media
+         * If the user has a media file named 'avatar', it returns the URL of the `thumbnail` version of that media
          * file. Otherwise, it returns the URL of the default avatar image.
          *
          * @return string The URL of the user's profile avatar.
@@ -103,7 +103,7 @@
         /**
          * Returns the URL of the original avatar of the user.
          *
-         * If the user has a media file named 'avatar', it returns the full URL of the 'original' version of that media
+         * If the user has a media file named 'avatar', it returns the full URL of the `original` version of that media
          * file. Otherwise, it returns the URL of the default avatar image.
          *
          * @return string The URL of the original avatar of the user.
@@ -126,7 +126,7 @@
          * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
          * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
          */
-        public function saveProfileAvatar($file): string
+        public function saveProfileAvatar(string $file): string
         {
             $this->clearMediaCollection('avatar');
             $this->addMedia($file)->toMediaCollection('avatar');
@@ -137,9 +137,11 @@
         /**
          * Registers media conversions for the user's media.
          *
-         * This function defines two media conversions: 'thumbnail' and 'original'. The 'thumbnail' conversion
-         * resizes the image to 96x96 pixels and sharpens it by a factor of 10. The 'original' conversion
-         * keeps the original image format and sharpens it by a factor of 10.
+         * This function defines two media conversions: `thumbnail` and `original`.
+         * The 'thumbnail' conversion resizes the image to 96x96 pixels
+         * and sharpens it by a factor of 10.
+         * The 'original' conversion keeps the original image format
+         * and sharpens it by a factor of 10.
          *
          * @param Media|null $media The media object to register conversions for.
          *
