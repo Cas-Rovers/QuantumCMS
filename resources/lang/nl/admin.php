@@ -26,5 +26,14 @@
                 'dashboard' => 'Dashboard',
                 'users' => 'Gebruikers',
             ]
-        ]
+        ],
+
+        'dashboard' => [
+            'widgets' => [
+                'visitors' => [
+                    'title' => 'Totaal aantal bezoekers',
+                    'text' => 'Vergeleken met vorige maand',
+                ]
+            ]
+        ],
     ];

@@ -26,5 +26,14 @@
                 'dashboard' => 'Dashboard',
                 'users' => 'Users',
             ]
-        ]
+        ],
+
+        'dashboard' => [
+            'widgets' => [
+                'visitors' => [
+                    'title' => 'Total visitors',
+                    'text' => 'Compared to last month',
+                ]
+            ]
+        ],
     ];

@@ -3,6 +3,7 @@
     namespace App\Http\Controllers\Admin;
 
     use App\Http\Controllers\Controller;
+    use App\Models\Admin\Visitor;
     use Illuminate\Contracts\View\Factory;
     use Illuminate\Foundation\Application;
     use \Illuminate\Contracts\View\View;
@@ -16,6 +17,10 @@
          */
         public function index(): Factory|View|Application
         {
-            return view('admin.index');
+            $currentMonthVisitors = Visitor::visitorsCurrentMonth();
+            $lastMonthVisitors = Visitor::visitorsLastMonth();
+            $percentageChange = $lastMonthVisitors ? Visitor::percentageChange($currentMonthVisitors, $lastMonthVisitors) : null;
+
+            return view('admin.index', compact('currentMonthVisitors', 'lastMonthVisitors', 'percentageChange'));
         }
     }

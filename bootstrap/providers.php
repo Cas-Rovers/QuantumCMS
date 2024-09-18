@@ -1,6 +1,7 @@
 <?php
 
-    return [
-        App\Providers\AppServiceProvider::class,
-        App\Providers\FortifyServiceProvider::class,
-    ];
+return [
+    App\Providers\AppServiceProvider::class,
+    App\Providers\FortifyServiceProvider::class,
+    App\Providers\VisitorServiceProvider::class,
+];
