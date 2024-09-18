@@ -1,9 +1,9 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Backend
+    Dashboard
 @endsection
 
 @section('content')
-    <h1>Hello World</h1>
+    <h1>wdwd</h1>
 @endsection

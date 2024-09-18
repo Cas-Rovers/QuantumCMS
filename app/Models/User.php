@@ -38,6 +38,7 @@
             'last_name',
             'email',
             'password',
+            'locale',
             'is_active'
         ];
 

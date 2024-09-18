@@ -20,4 +20,11 @@
                 ]
             ],
         ],
+
+        'sidebar' => [
+            'anchors' => [
+                'dashboard' => 'Dashboard',
+                'users' => 'Gebruikers',
+            ]
+        ]
     ];

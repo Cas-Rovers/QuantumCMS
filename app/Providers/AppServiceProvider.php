@@ -2,6 +2,7 @@
 
     namespace App\Providers;
 
+    use Illuminate\Support\Facades\Blade;
     use Illuminate\Support\Facades\Gate;
     use Illuminate\Support\ServiceProvider;
 
@@ -39,6 +40,16 @@
             // This works in the app by using gate-related functions like auth()->user->can() and @can()
             Gate::before(function ($user, $ability) {
                 return $user->hasRole('Super Admin') ? true : null;
+            });
+
+            // component namespaces 'admin' and 'frontend',
+            // example <x-admin::ComponentName/> or <x-frontend::ComponentName/>
+            Blade::componentNamespace('App\\View\\Components\\Admin', 'admin');
+            Blade::componentNamespace('App\\View\\Components\\Frontend', 'frontend');
+
+            view()->composer('admin.components.language-switcher', function ($view) {
+               $view->with('current_locale', app()->getLocale());
+               $view->with('supported_locales', config('app.supported_locales'));
             });
         }
     }

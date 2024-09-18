@@ -20,7 +20,7 @@
 
     Route::get('/', function () {
         return view('frontend.index');
-    });
+    })->name('frontend.index');
 
     // Admin routes.
 

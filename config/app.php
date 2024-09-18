@@ -84,6 +84,11 @@
 
         'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
+        'supported_locales' => [
+            'English' => 'en',
+            'Nederlands' => 'nl',
+        ],
+
         /*
         |--------------------------------------------------------------------------
         | Encryption Key

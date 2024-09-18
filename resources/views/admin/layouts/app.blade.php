@@ -8,7 +8,24 @@
     @vite('resources/assets/admin/sass/app.scss')
 </head>
 <body data-bs-theme="dark">
-    @yield('content')
+    <main @auth class="d-flex flex-nowrap" id="top" @endauth>
+        @auth
+            @include('admin.layouts.sidebar')
+            <div class="content w-100">
+                @include('admin.layouts.top-navbar')
+                <section class="my-3">
+                    @yield('content')
+                </section>
+            </div>
+        @endauth
+        @guest
+            <div class="content w-100">
+                <section>
+                    @yield('content')
+                </section>
+            </div>
+        @endguest
+    </main>
     @vite('resources/assets/admin/js/app.js')
 </body>
 </html>
