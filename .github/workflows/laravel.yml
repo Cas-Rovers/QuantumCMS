@@ -53,22 +53,22 @@ jobs:
     - name: Build assets
       run: npm run build
 
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
     - name: Create Database
       run: |
         mkdir -p database
         touch database/database.sqlite
-
-    - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-
-    - name: Generate key
-      run: php artisan key:generate
 
     - name: Run migrations
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: php artisan migrate --force
+
+    - name: Generate key
+      run: php artisan key:generate
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
