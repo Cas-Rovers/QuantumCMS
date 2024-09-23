@@ -24,6 +24,6 @@ class VisitorServiceProvider extends ServiceProvider
     {
         $this->app['router']->pushMiddlewareToGroup('web', TrackVisitors::class);
 
-        View::share('visitorCount', Visitor::count());
+//        View::share('visitorCount', Visitor::count());
     }
 }
