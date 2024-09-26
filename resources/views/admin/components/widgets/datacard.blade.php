@@ -1,8 +1,10 @@
 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
     <div class="card-header">{{ $title }}</div>
     <div class="card-body">
-        @if ($value)
+        @if (isset($value) && is_numeric($value))
             <h5 class="card-title">{{ $value }}</h5>
+        @else
+            <h5 class="card-title">0</h5> <!-- Display 0 explicitly when $value is not set or is null -->
         @endif
 
         @if ($text)

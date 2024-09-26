@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->string('user_agent');
             $table->timestamp('visited_at');
             $table->timestamps();
+
+            $table->index('visited_at');
         });
     }
 

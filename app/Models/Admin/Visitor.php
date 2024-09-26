@@ -40,9 +40,13 @@
          */
         public static function visitorsCurrentMonth(): int
         {
-            return self::where('visited_at', '>=', Carbon::now()->startOfMonth())
-                ->where('visited_at', '<=', Carbon::now()->endOfMonth())
-                ->count();
+            $startCurrentMonth = Carbon::now();
+            $endCurrentMonth = Carbon::now();
+
+            return self::whereBetween('visited_at', [
+                $startCurrentMonth->startOfMonth(),
+                $endCurrentMonth->endOfMonth(),
+            ])->count();
         }
 
         /**
@@ -52,9 +56,13 @@
          */
         public static function visitorsLastMonth(): int
         {
-            return self::where('visited_at', '>=', Carbon::now()->subMonth()->startOfMonth())
-                ->where('visited_at', '<=', Carbon::now()->subMonth()->endOfMonth())
-                ->count();
+            $startLastMonth = Carbon::now()->subMonth();
+            $endLastMonth = Carbon::now()->subMonth();
+
+            return self::whereBetween('visited_at', [
+                $startLastMonth->startOfMonth(),
+                $endLastMonth->endOfMonth(),
+            ])->count();
         }
 
         /**
