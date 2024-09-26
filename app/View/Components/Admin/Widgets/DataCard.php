@@ -27,7 +27,7 @@
             ?string $title = null,
             ?string $value = null,
             ?string $text = null,
-            ?string $percentageChange = s,
+            ?string $percentageChange = null,
             ?string $iconClass = null,
             ?string $iconColor = null,
         ) {
