@@ -12,6 +12,11 @@ jobs:
   lint:
     runs-on: ubuntu-latest
 
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
     steps:
       # Checkout the code in the repository
       - name: Checkout
@@ -50,3 +55,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Fixes coding style"
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          commit_author: '${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>'
