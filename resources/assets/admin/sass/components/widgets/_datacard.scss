@@ -1,0 +1,19 @@
+.data-card {
+    &.visitors {
+        background: $primary;
+    }
+
+    .content-wrapper {
+        .content {
+            .title {
+                opacity: .8;
+            }
+            .sub-data {
+                opacity: .8;
+            }
+        }
+        .icon {
+            opacity: .5;
+        }
+    }
+}

@@ -13,7 +13,7 @@
             @include('admin.layouts.sidebar')
             <div class="content w-100">
                 @include('admin.layouts.top-navbar')
-                <section class="my-3">
+                <section class="my-3 mx-3">
                     @yield('content')
                 </section>
             </div>

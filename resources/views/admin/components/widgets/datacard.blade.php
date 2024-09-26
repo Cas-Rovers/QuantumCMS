@@ -1,31 +1,27 @@
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-    <div class="card-header">{{ $title }}</div>
-    <div class="card-body">
-        @if (isset($value) && is_numeric($value))
-            <h5 class="card-title">{{ $value }}</h5>
-        @else
-            <h5 class="card-title">0</h5> <!-- Display 0 explicitly when $value is not set or is null -->
-        @endif
+<div class="data-card {{ Str::lower($dataCardType) }} rounded-1">
+    <div class="p-4">
+        <div class="content-wrapper d-flex justify-content-between align-items-center">
+            <div class="content d-flex flex-column justify-content-center">
+                @isset($title)
+                    <span class="title h4">{{ $title }}</span>
+                @endisset
 
-        @if ($text)
-            <p class="card-text">
-                <span>{{ $text }}</span>
-                @if ($percentageChange)
-                    (<span class="{{ $percentageChange > 0 ? 'text-success' : 'text-danger' }}">
-                        {{ $percentageChange > 0 ? '+' : '-' }}{{ round($percentageChange, 2) }}%
-                    </span>)
-                @else ()
-                    (<span>
-                        <code>null</code>
-                    </span>)
-                @endif
-            </p>
-        @endif
+                @isset($cardData)
+                    <span class="data h2">{{ $cardData }}</span>
+                @endisset
 
-        @if ($iconClass)
-            <div class="position-absolute top-0 end-0 p-3">
-                <i class="{{ $iconClass }} fa-2x {{ $iconColor }}"></i>
+                @isset($cardSubData)
+                    <span class="sub-data h6">{{ $cardSubData }}</span>
+                @endisset
             </div>
-        @endif
+
+            <div class="icon">
+                @isset($iconPath)
+                    @include($iconPath)
+                @elseif(isset($faIcon))
+                    <i class="fa-{{ $faIcon }} {{ $iconColor }}"></i>
+                @endisset
+            </div>
+        </div>
     </div>
 </div>

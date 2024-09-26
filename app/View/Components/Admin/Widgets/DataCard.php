@@ -8,35 +8,33 @@
 
     class DataCard extends Component
     {
+        public ?string $dataCardType;
         public ?string $title;
-
-        public ?string $value;
-
-        public ?string $text;
-
-        public ?string $percentageChange;
-
-        public ?string $iconClass;
-
-        public ?string $iconColor;
+        public ?string $cardData;
+        public ?string $cardSubData;
+        public ?string $faIcons;
+        public ?string $iconPath;
+        public ?string $color;
 
         /**
          * Create a new component instance.
          */
         public function __construct(
+            ?string $dataCardType = null,
             ?string $title = null,
-            ?string $value = null,
-            ?string $text = null,
-            ?string $percentageChange = null,
-            ?string $iconClass = null,
-            ?string $iconColor = null,
+            ?string $cardData = null,
+            ?string $cardSubData = null,
+            ?string $faIcons = null,
+            ?string $iconPath = null,
+            ?string $color = null
         ) {
+            $this->dataCardType = $dataCardType;
             $this->title = $title;
-            $this->value = $value;
-            $this->text = $text;
-            $this->percentageChange = $percentageChange;
-            $this->iconClass = $iconClass;
-            $this->iconColor = $iconColor;
+            $this->cardData = $cardData;
+            $this->cardSubData = $cardSubData;
+            $this->faIcons = $faIcons;
+            $this->iconPath = $iconPath;
+            $this->color = $color;
         }
 
         /**
