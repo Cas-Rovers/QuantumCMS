@@ -18,11 +18,6 @@ jobs:
         ports:
           - 3306:3306
 
-    # Define a strategy for running the job on multiple PHP versions
-    strategy:
-      matrix:
-        php-versions: ['8.2', '8.3']
-
     steps:
       # Checkout the code in the repository
       - name: Checkout
@@ -34,7 +29,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-versions }}
+          php-version: '8.3'
           extensions: mbstring, intl, pdo_sqlite, pdo_mysql
           ini-values: post_max_size=256M, max_execution_time=180
           coverage: xdebug
