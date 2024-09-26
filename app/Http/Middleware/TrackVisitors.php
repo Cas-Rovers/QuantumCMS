@@ -21,11 +21,11 @@
                 return $next($request);
             }
 
-            Visitor::create([
-                'ip_address' => $request->ip(),
-                'user_agent' => $request->userAgent(),
-                'visited_at' => Carbon::now(),
-            ]);
+//            Visitor::create([
+//                'ip_address' => $request->ip(),
+//                'user_agent' => $request->userAgent(),
+//                'visited_at' => Carbon::now(),
+//            ]);
 
             return $next($request);
         }
