@@ -43,10 +43,6 @@ jobs:
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
-      # Generate the application key
-      - name: Generate key
-        run: php artisan key:generate
-
       # Install Composer dependencies
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
@@ -58,6 +54,10 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
+
+      # Generate the application key
+      - name: Generate key
+        run: php artisan key:generate
 
       # Create Database
       - name: Create Database
