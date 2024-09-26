@@ -70,7 +70,7 @@ jobs:
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
-          run: php artisan migrate --force
+        run: php artisan migrate --force
 
       # Run Unit Tests
       - name: Run Unit Tests
