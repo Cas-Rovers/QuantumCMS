@@ -35,6 +35,12 @@ jobs:
           coverage: xdebug
           tools: php-cs-fixer
 
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.8.0'
+
       # Directory Permissions
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
@@ -54,6 +60,22 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
+
+      # Install Node Dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Cache node modules
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      # Build Assets
+      - name: Build Assets
+        run: npm run build
 
       # Generate the application key
       - name: Generate key
