@@ -39,7 +39,7 @@
             'email',
             'password',
             'locale',
-            'is_active'
+            'is_active',
         ];
 
         /**
@@ -62,7 +62,7 @@
             return [
                 'email_verified_at' => 'datetime',
                 'password' => 'hashed',
-                'is_active' => 'boolean'
+                'is_active' => 'boolean',
             ];
         }
 
@@ -82,7 +82,6 @@
             return trim($first_name . ' ' . $last_name . ' ' . $infix);
         }
 
-
         /**
          * Returns the URL of the user's profile avatar.
          *
@@ -99,7 +98,6 @@
                 return asset('images/default-avatar.png');
             }
         }
-
 
         /**
          * Returns the URL of the original avatar of the user.
@@ -124,6 +122,7 @@
          * @param string $file The file to be saved as the profile avatar.
          *
          * @return string The URL of the saved profile avatar.
+         *
          * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
          * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
          */
@@ -145,8 +144,6 @@
          * and sharpens it by a factor of 10.
          *
          * @param Media|null $media The media object to register conversions for.
-         *
-         * @return void
          */
         public function registerMediaConversions(?Media $media = null): void
         {

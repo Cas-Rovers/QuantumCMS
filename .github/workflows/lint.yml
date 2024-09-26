@@ -1,0 +1,57 @@
+name: Code Quality
+
+on:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    # Define a strategy for running the job on multiple PHP versions
+    strategy:
+      matrix:
+        php-versions: [ '8.2', '8.3' ]
+
+    steps:
+      # Checkout the code in the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Setup PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, intl, pdo_sqlite, pdo_mysql
+          ini-values: post_max_size=256M, max_execution_time=180
+          coverage: xdebug
+          tools: php-cs-fixer
+
+      # Install dependencies
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      # Cache dependencies
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      # Run Laravel Pint
+      - name: Run Laravel Pint
+        run: ./vendor/bin/pint -v
+
+      # Commits the linted files
+      - name: Commit linted files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Fixes coding style"

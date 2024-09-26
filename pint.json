@@ -1,0 +1,35 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "braces": true,
+        "class_attributes_separation": true,
+        "braces_position": true,
+
+        "class_definition": true,
+
+        "no_extra_blank_lines": true,
+        "no_leading_namespace_whitespace": false,
+
+        "no_leading_import_slash": false,
+        "no_unused_imports": true,
+        "ordered_imports": true,
+
+        "phpdoc_align": true,
+        "phpdoc_no_package": false,
+        "phpdoc_separation": true,
+        "phpdoc_trim": true,
+        "no_superfluous_phpdoc_tags": false,
+
+        "concat_space": true,
+        "simplified_null_return": true,
+        "statement_indentation": false,
+
+        "trailing_comma_in_multiline": true,
+        "line_ending": true,
+
+        "function_declaration": true,
+        "cast_spaces": true,
+        "blank_line_before_statement": true,
+        "not_operator_with_successor_space": true
+    }
+}

@@ -54,10 +54,10 @@
             Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
             Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
-            Fortify::loginView(fn() => view('admin.auth.login'));
+            Fortify::loginView(fn () => view('admin.auth.login'));
 
             RateLimiter::for('login', function (Request $request) {
-                $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
+                $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
                 return Limit::perMinute(5)->by($throttleKey);
             });

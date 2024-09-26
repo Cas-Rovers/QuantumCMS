@@ -17,7 +17,7 @@
         )
         ->withMiddleware(function (Middleware $middleware) {
             $middleware->web(append: [
-               Localization::class
+                Localization::class,
             ]);
             $middleware->alias([
                 'role' => RoleMiddleware::class,

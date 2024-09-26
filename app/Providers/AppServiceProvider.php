@@ -48,8 +48,8 @@
             Blade::componentNamespace('App\\View\\Components\\Frontend', 'frontend');
 
             view()->composer('admin.components.language-switcher', function ($view) {
-               $view->with('current_locale', app()->getLocale());
-               $view->with('supported_locales', config('app.supported_locales'));
+                $view->with('current_locale', app()->getLocale());
+                $view->with('supported_locales', config('app.supported_locales'));
             });
         }
     }

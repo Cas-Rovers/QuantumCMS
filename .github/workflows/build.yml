@@ -1,0 +1,41 @@
+name: Build
+
+on:
+    push:
+      branches:
+        - main
+    pull_request:
+
+jobs:
+  build-assets:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code in the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.8.0'
+
+      # Install Dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Cache node modules
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      # Build Assets
+      - name: Build Assets
+        run: npm run build
+

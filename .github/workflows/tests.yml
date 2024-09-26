@@ -1,0 +1,86 @@
+name: Run Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    # The service container is used to run MySQL.
+    services:
+      mysql:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: SECRET
+          MYSQL_DATABASE: testing
+        ports:
+          - 3306:3306
+
+    # Define a strategy for running the job on multiple PHP versions
+    strategy:
+      matrix:
+        php-versions: ['8.2', '8.3']
+
+    steps:
+      # Checkout the code in the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Setup PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, intl, pdo_sqlite, pdo_mysql
+          ini-values: post_max_size=256M, max_execution_time=180
+          coverage: xdebug
+          tools: php-cs-fixer
+
+      # Directory Permissions
+      - name: Directory Permissions
+        run: chmod -R 777 storage bootstrap/cache
+
+      # Coping .env
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      # Generate the application key
+      - name: Generate key
+        run: php artisan key:generate
+
+      # Install Composer dependencies
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      # Cache Composer dependencies
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      # Create Database
+      - name: Create Database
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
+
+      # Run migrations
+      - name: Run migrations
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/database.sqlite
+          run: php artisan migrate --force
+
+      # Run Unit Tests
+      - name: Run Unit Tests
+        run: ./vendor/bin/pest tests/Unit
+
+      # Run Feature Tests
+      - name: Run Integration Tests
+        run: ./vendor/bin/pest tests/Feature
