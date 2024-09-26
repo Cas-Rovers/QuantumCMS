@@ -41,6 +41,7 @@ jobs:
         with:
           node-version: '22.8.0'
 
+
       # Directory Permissions
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
