@@ -9,10 +9,15 @@
     class DataCard extends Component
     {
         public ?string $title;
+
         public ?string $value;
+
         public ?string $text;
+
         public ?string $percentageChange;
+
         public ?string $iconClass;
+
         public ?string $iconColor;
 
         /**
@@ -25,8 +30,7 @@
             ?string $percentageChange = s,
             ?string $iconClass = null,
             ?string $iconColor = null,
-        )
-        {
+        ) {
             $this->title = $title;
             $this->value = $value;
             $this->text = $text;

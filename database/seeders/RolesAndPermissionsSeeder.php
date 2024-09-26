@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
@@ -15,7 +14,7 @@ class RolesAndPermissionsSeeder extends Seeder
     {
         Role::firstOrCreate([
             'name' => 'Super Admin',
-            'guard_name' => 'web'
+            'guard_name' => 'web',
         ]);
     }
 }

@@ -79,7 +79,7 @@
             $last_name = array_shift($nameParts);
             $infix = implode(' ', $nameParts);
 
-            return trim($first_name . ' ' . $last_name . ' ' . $infix);
+            return trim($first_name.' '.$last_name.' '.$infix);
         }
 
         /**

@@ -3,7 +3,6 @@
     namespace Database\Seeders;
 
     use App\Models\User;
-    use Illuminate\Database\Console\Seeds\WithoutModelEvents;
     use Illuminate\Database\Seeder;
 
     /**
@@ -29,8 +28,8 @@
                 'is_active' => true,
             ])->assignRole('Super Admin');
 
-             User::factory(500)->create([
-                 'is_active' => false,
-             ]);
+            User::factory(500)->create([
+                'is_active' => false,
+            ]);
         }
     }

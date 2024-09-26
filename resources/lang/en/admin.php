@@ -3,7 +3,7 @@
     return [
         'auth' => [
             'login' => [
-                'logo_alt' => 'Logo of ' . config('app.name'),
+                'logo_alt' => 'Logo of '.config('app.name'),
                 'header' => 'Login',
                 'email' => 'Email',
                 'password' => 'Password',
@@ -17,7 +17,7 @@
                     'remember_me' => 'Remember me checkbox',
                     'reset_password' => 'Reset password link',
                     'submit' => 'Login button',
-                ]
+                ],
             ],
         ],
 
@@ -25,7 +25,7 @@
             'anchors' => [
                 'dashboard' => 'Dashboard',
                 'users' => 'Users',
-            ]
+            ],
         ],
 
         'dashboard' => [
@@ -33,7 +33,7 @@
                 'visitors' => [
                     'title' => 'Total visitors',
                     'text' => 'Compared to last month',
-                ]
-            ]
+                ],
+            ],
         ],
     ];

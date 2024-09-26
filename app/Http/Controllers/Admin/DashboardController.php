@@ -2,11 +2,11 @@
 
     namespace App\Http\Controllers\Admin;
 
+    use \Illuminate\Contracts\View\View;
     use App\Http\Controllers\Controller;
     use App\Models\Admin\Visitor;
     use Illuminate\Contracts\View\Factory;
     use Illuminate\Foundation\Application;
-    use \Illuminate\Contracts\View\View;
 
     class DashboardController extends Controller
     {
