@@ -9,8 +9,11 @@ use Illuminate\View\Component;
 class SidebarButton extends Component
 {
     public string $route;
+
     public string $type;
+
     public string $icon;
+
     public string $label;
 
     /**

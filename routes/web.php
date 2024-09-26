@@ -25,5 +25,5 @@
     // Admin routes.
 
     Route::prefix('admin')->group(function () {
-        include __DIR__ . '/admin.php';
+        include __DIR__.'/admin.php';
     });
