@@ -9,11 +9,17 @@
     class DataCard extends Component
     {
         public ?string $dataCardType;
+
         public ?string $title;
+
         public ?string $cardData;
+
         public ?string $cardSubData;
+
         public ?string $faIcons;
+
         public ?string $iconPath;
+
         public ?string $color;
 
         /**
