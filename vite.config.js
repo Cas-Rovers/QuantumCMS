@@ -11,7 +11,6 @@ export default defineConfig({
                 'resources/assets/admin/js/app.js',
                 'resources/assets/frontend/js/app.js',
             ],
-            detectTls: 'http://quantumcms.test',
             refresh: true,
         }),
     ],
