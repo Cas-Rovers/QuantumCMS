@@ -14,4 +14,10 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    resolve: {
+        alias: {
+            '~': 'resources/assets/admin',
+            '@': 'resources/assets/frontend',
+        }
+    }
 });
