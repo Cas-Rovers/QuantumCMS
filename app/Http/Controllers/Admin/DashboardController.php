@@ -17,10 +17,13 @@
          */
         public function index(): Factory|View|Application
         {
-            $currentMonthVisitors = Visitor::visitorsCurrentMonth();
-            $lastMonthVisitors = Visitor::visitorsLastMonth();
-            $percentageChange = $lastMonthVisitors ? Visitor::percentageChange($currentMonthVisitors, $lastMonthVisitors) : null;
+//            $currentMonthVisitors = Visitor::visitorsCurrentMonth();
+//            $lastMonthVisitors = Visitor::visitorsLastMonth();
 
-            return view('admin.index', compact('currentMonthVisitors', 'lastMonthVisitors', 'percentageChange'));
+            $visitors = new Visitor;
+
+            $percentageChange = $visitors->visitorsLastMonth() ? Visitor::percentageChange($visitors->visitorsCurrentMonth(), $visitors->visitorsLastMonth()) : null;
+
+            return view('admin.index', compact('visitors', 'percentageChange'));
         }
     }

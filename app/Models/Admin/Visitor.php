@@ -34,6 +34,16 @@
         }
 
         /**
+         * Get the total number of visitors.
+         *
+         * @return int
+         */
+        public static function totalVisitors(): int
+        {
+            return self::count();
+        }
+
+        /**
          * Get the number of visitors for the current month.
          *
          * @return int
