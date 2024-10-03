@@ -100,5 +100,5 @@ jobs:
         run: ./vendor/bin/pest tests/Unit
 
       # Run Feature Tests
-      - name: Run Integration Tests
+      - name: Run Feature Tests
         run: ./vendor/bin/pest tests/Feature
