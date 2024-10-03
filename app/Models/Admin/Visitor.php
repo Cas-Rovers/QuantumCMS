@@ -41,7 +41,7 @@
          */
         public static function totalVisitors(): int
         {
-            return Cache::remember('visitors.total', now()->addHour(), function () {
+            return Cache::tags('visitors')->remember('visitors.total', now()->addHour(), function () {
                 return self::count();
             });
         }
@@ -53,7 +53,7 @@
          */
         public static function visitorsCurrentMonth(): int
         {
-            return Cache::remember('visitors.current_month', now()->addHour(), function () {
+            return Cache::tags('visitors')->remember('visitors.current_month', now()->addHour(), function () {
                 $startCurrentMonth = Carbon::now();
                 $endCurrentMonth = Carbon::now();
 
@@ -71,7 +71,7 @@
          */
         public static function visitorsLastMonth(): int
         {
-            return Cache::remember('visitors.last_month', now()->addHour(), function () {
+            return Cache::tags('visitors')->remember('visitors.last_month', now()->addHour(), function () {
                 $startLastMonth = Carbon::now()->subMonth();
                 $endLastMonth = Carbon::now()->subMonth();
 
