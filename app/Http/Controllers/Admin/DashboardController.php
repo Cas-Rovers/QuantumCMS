@@ -22,7 +22,7 @@
 
             $visitors = new Visitor;
 
-            $percentageChange = $visitors->visitorsLastMonth() ? Visitor::percentageChange($visitors->visitorsCurrentMonth(), $visitors->visitorsLastMonth()) : null;
+            $percentageChange = Visitor::percentageChange($visitors->visitorsCurrentMonth(), $visitors->visitorsLastMonth());
 
             return view('admin.index', compact('visitors', 'percentageChange'));
         }

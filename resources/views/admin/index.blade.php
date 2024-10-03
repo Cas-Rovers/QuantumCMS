@@ -11,7 +11,7 @@
                 dataCardType="visitors"
                 :title="__('admin.dashboard.widgets.visitors.title')"
                 :cardData="$visitors->totalVisitors()"
-                :cardSubData="__('admin.dashboard.widgets.visitors.text') . ' (' . (($percentageChange !== null) ? $percentageChange . '%' : 'N/A') . '%)'"
+                :cardSubData="__('admin.dashboard.widgets.visitors.text') . ' (' . (($percentageChange !== null) ? $percentageChange . '%' : 'N/A') . ')'"
                 iconPath="admin.components.svgs.internet"
                 color="text-white-50"
             />

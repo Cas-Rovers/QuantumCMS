@@ -5,6 +5,7 @@
     use Carbon\Carbon;
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Support\Facades\Cache;
 
     class Visitor extends Model
     {
@@ -40,7 +41,9 @@
          */
         public static function totalVisitors(): int
         {
-            return self::count();
+            return Cache::remember('visitors.total', now()->addHour(), function () {
+                return self::count();
+            });
         }
 
         /**
@@ -50,13 +53,15 @@
          */
         public static function visitorsCurrentMonth(): int
         {
-            $startCurrentMonth = Carbon::now();
-            $endCurrentMonth = Carbon::now();
+            return Cache::remember('visitors.current_month', now()->addHour(), function () {
+                $startCurrentMonth = Carbon::now();
+                $endCurrentMonth = Carbon::now();
 
-            return self::whereBetween('visited_at', [
-                $startCurrentMonth->startOfMonth(),
-                $endCurrentMonth->endOfMonth(),
-            ])->count();
+                return self::whereBetween('visited_at', [
+                    $startCurrentMonth->startOfMonth(),
+                    $endCurrentMonth->endOfMonth(),
+                ])->count();
+            });
         }
 
         /**
@@ -66,13 +71,15 @@
          */
         public static function visitorsLastMonth(): int
         {
-            $startLastMonth = Carbon::now()->subMonth();
-            $endLastMonth = Carbon::now()->subMonth();
+            return Cache::remember('visitors.last_month', now()->addHour(), function () {
+                $startLastMonth = Carbon::now()->subMonth();
+                $endLastMonth = Carbon::now()->subMonth();
 
-            return self::whereBetween('visited_at', [
-                $startLastMonth->startOfMonth(),
-                $endLastMonth->endOfMonth(),
-            ])->count();
+                return self::whereBetween('visited_at', [
+                    $startLastMonth->startOfMonth(),
+                    $endLastMonth->endOfMonth(),
+                ])->count();
+            });
         }
 
         /**
