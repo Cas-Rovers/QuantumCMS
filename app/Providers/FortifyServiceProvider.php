@@ -74,7 +74,7 @@
         public function boot(): void
         {
             Fortify::authenticateUsing(function (Request $request) {
-                $user = User::whereEmail($request->email)->first();
+                $user = User::whereEmail($request->email)->firstOrFail();
                 $throttleKey = $this->throttleKey($request);
 
                 if (RateLimiter::tooManyAttempts($throttleKey, 5)) {
@@ -92,8 +92,8 @@
 
                         // (Optional) Check if 2FA is enabled for the user
                         //if ($user->two_factor_enabled) {
-                        // Perform two-factor authentication checks here,
-                        // for example, send OTP, verify code, and so on.
+                        //// Perform two-factor authentication checks here,
+                        //// for example, send OTP, verify code, and so on.
                         //}
 
                         return $user;

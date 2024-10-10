@@ -14,6 +14,7 @@
     use Spatie\MediaLibrary\InteractsWithMedia;
     use Spatie\MediaLibrary\MediaCollections\Models\Media;
     use Spatie\Permission\Traits\HasRoles;
+    use Vite;
 
     /**
      * User model class.
@@ -95,7 +96,7 @@
             if ($this->hasMedia('avatar')) {
                 return $this->getFirstMedia('avatar')->getUrl('thumbnail');
             } else {
-                return asset('images/default-avatar.png');
+                return Vite::asset('resources/assets/admin/media/images/profile/default-avatar.jpg');
             }
         }
 

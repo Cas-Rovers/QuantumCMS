@@ -28,6 +28,14 @@
             ],
         ],
 
+        'top_navbar' => [
+            'profile_information' => [
+                'avatar_alt' => 'Profile image of',
+                'settings' => 'Settings',
+                'logout' => 'Logout',
+            ],
+        ],
+
         'dashboard' => [
             'widgets' => [
                 'visitors' => [

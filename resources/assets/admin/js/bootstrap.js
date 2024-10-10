@@ -59,3 +59,26 @@ import 'bootstrap';
  */
 import * as d3 from "d3";
 window.d3 = d3;
+
+/*
+ * Importing the Alpine.js framework for minimal and declarative JavaScript behavior
+ *
+ * Alpine.js is a lightweight JavaScript framework designed to handle simple interactions,
+ * often used for UI components like dropdowns, modals, and tabs.
+ * It allows developers to enhance the interactivity of their web applications with minimal effort,
+ * leveraging a declarative style similar to Vue.js, but without the overhead of a large framework.
+ *
+ * Key Features:
+ * – Simple, declarative API for handling frontend interactions
+ * – Lightweight and minimal footprint
+ * – Reactive data binding with minimal JavaScript
+ * – Works well with existing frameworks or on its own
+ * – No build tools or complex setup required
+ * – Two-way data binding and event handling
+ *
+ * Documentation: https://alpinejs.dev/start-here
+ */
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+
+Alpine.start();
