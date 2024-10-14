@@ -5,19 +5,26 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/assets/admin/sass/app.scss',
-                'resources/assets/admin/css/app.css',
-                'resources/assets/frontend/css/app.css',
-                'resources/assets/admin/js/app.js',
-                'resources/assets/frontend/js/app.js',
+                '~/sass/app.scss',
+                '~/css/app.css',
+                '@/css/app.css',
+                '~/js/app.js',
+                '@/js/app.js',
             ],
             refresh: true,
         }),
     ],
+    build: {
+        minify: 'esbuild',
+        sourcemap: false,
+    },
     resolve: {
         alias: {
             '~': 'resources/assets/admin',
             '@': 'resources/assets/frontend',
-        }
-    }
+        },
+    },
+    optimizeDeps: {
+        include: ['axios'], // Pre-bundle dependencies to improve performance
+    },
 });
