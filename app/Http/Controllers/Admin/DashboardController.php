@@ -17,13 +17,12 @@
          */
         public function index(): Factory|View|Application
         {
-//            $currentMonthVisitors = Visitor::visitorsCurrentMonth();
-//            $lastMonthVisitors = Visitor::visitorsLastMonth();
+            $totalVisitors = Visitor::totalVisitors();
+            $currentMonthVisitors = Visitor::visitorsCurrentMonth();
+            $lastMonthVisitors = Visitor::visitorsLastMonth();
 
-            $visitors = new Visitor;
+            $percentageChange = Visitor::percentageChange($currentMonthVisitors, $lastMonthVisitors);
 
-            $percentageChange = Visitor::percentageChange($visitors->visitorsCurrentMonth(), $visitors->visitorsLastMonth());
-
-            return view('admin.index', compact('visitors', 'percentageChange'));
+            return view('admin.index', compact('totalVisitors', 'percentageChange'));
         }
     }

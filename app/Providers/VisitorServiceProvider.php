@@ -24,8 +24,8 @@
         {
             $this->app['router']->pushMiddlewareToGroup('web', TrackVisitors::class);
 
-            if (! $this->app->runningInConsole()) {
-                View::share('visitorCount', Visitor::count());
-            }
+//            if (! $this->app->runningInConsole()) {
+//                View::share('visitorCount', Visitor::count());
+//            }
         }
     }
