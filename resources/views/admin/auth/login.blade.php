@@ -1,8 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title')
-    Login
-@endsection
+@section('title', 'Login')
 
 @section('content')
     <div class="login login-with-artwork">

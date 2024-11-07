@@ -17,6 +17,14 @@ export default defineConfig({
     build: {
         minify: 'esbuild',
         sourcemap: false,
+        rollupOptions: {
+            output: {
+                assetFileNames: 'assets/[name]-[hash][extname]',
+                chunkFileNames: 'assets/[name].[hash].js',
+                entryFileNames: 'assets/[name].[hash].js',
+            },
+        },
+        cssCodeSplit: true,
     },
     resolve: {
         alias: {
@@ -25,6 +33,14 @@ export default defineConfig({
         },
     },
     optimizeDeps: {
-        include: ['axios'], // Pre-bundle dependencies to improve performance
+        include: [
+            'axios',
+            'd3',
+        ],
+    },
+    server: {
+        hmr: {
+            overlay: true,
+        },
     },
 });
