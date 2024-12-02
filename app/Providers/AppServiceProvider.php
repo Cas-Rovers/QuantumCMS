@@ -11,8 +11,6 @@
      *
      * This service provider is responsible for registering and bootstrapping
      * application services for the App namespace.
-     *
-     * @package App\Providers
      */
     class AppServiceProvider extends ServiceProvider
     {

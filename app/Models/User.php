@@ -9,12 +9,12 @@
     use Illuminate\Notifications\Notifiable;
 
     //  use Laravel\Fortify\TwoFactorAuthenticatable;
+    use Illuminate\Support\Facades\Vite;
     use Laravel\Sanctum\HasApiTokens;
     use Spatie\MediaLibrary\HasMedia;
     use Spatie\MediaLibrary\InteractsWithMedia;
     use Spatie\MediaLibrary\MediaCollections\Models\Media;
     use Spatie\Permission\Traits\HasRoles;
-    use Vite;
 
     /**
      * User model class.
@@ -22,8 +22,6 @@
      * This class represents a user in the application and provides methods for
      * managing user data, including authentication, media management, and attribute
      * casting.
-     *
-     * @package App\Models
      */
     class User extends Authenticatable implements HasMedia
     {

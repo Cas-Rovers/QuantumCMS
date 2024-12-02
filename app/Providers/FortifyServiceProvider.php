@@ -23,8 +23,6 @@
      * configuring its behavior. It sets up custom classes for user creation,
      * profile updates, password updates, and password resets. Additionally,
      * it configures rate limiting for login attempts and two-factor authentication.
-     *
-     * @package App\Providers
      */
     class FortifyServiceProvider extends ServiceProvider
     {

@@ -9,8 +9,6 @@
      * Class: `UserTableSeeder`
      *
      * Seeds the `users` table.
-     *
-     * @package Database\Seeders
      */
     class UserTableSeeder extends Seeder
     {
