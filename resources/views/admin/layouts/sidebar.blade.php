@@ -3,7 +3,7 @@
         <a href="{{ route('admin.dashboard') }}" class="logo">
             <span class="logo text-primary">
                 <!-- Logo SVG -->
-                @include('admin.components.svgs.logo')
+                @include('components.admin.svgs.logo')
                 <!-- End Logo SVG -->
             </span>
         </a>
@@ -13,7 +13,7 @@
             <x-admin::SideBarButton route="admin.dashboard" icon="chart-line" label="admin.sidebar.anchors.dashboard"/>
         @endcan
         @can('view users')
-            <x-admin::SideBarButton route="frontend.index" icon="users" label="admin.sidebar.anchors.users"/>
+            <x-admin::SideBarButton route="admin.users.index" icon="users" label="admin.sidebar.anchors.users"/>
         @endcan
     </div>
     <!-- /.nav-content -->

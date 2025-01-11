@@ -11,8 +11,6 @@
      *
      * This abstract class provides a foundation for other controllers, inheriting
      * functionality for authorizing user requests and validating incoming request data.
-     *
-     * @package App\Http\Controllers
      */
     abstract class Controller extends BaseController
     {

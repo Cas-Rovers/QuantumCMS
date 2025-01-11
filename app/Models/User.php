@@ -7,8 +7,6 @@
     use Illuminate\Database\Eloquent\SoftDeletes;
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Illuminate\Notifications\Notifiable;
-
-    //  use Laravel\Fortify\TwoFactorAuthenticatable;
     use Laravel\Sanctum\HasApiTokens;
     use Spatie\MediaLibrary\HasMedia;
     use Spatie\MediaLibrary\InteractsWithMedia;
@@ -16,14 +14,14 @@
     use Spatie\Permission\Traits\HasRoles;
     use Vite;
 
+    //  use Laravel\Fortify\TwoFactorAuthenticatable;
+
     /**
      * User model class.
      *
      * This class represents a user in the application and provides methods for
      * managing user data, including authentication, media management, and attribute
      * casting.
-     *
-     * @package App\Models
      */
     class User extends Authenticatable implements HasMedia
     {
@@ -80,7 +78,7 @@
             $last_name = array_shift($nameParts);
             $infix = implode(' ', $nameParts);
 
-            return trim($first_name.' '.$last_name.' '.$infix);
+            return trim($first_name . ' ' . $last_name . ' ' . $infix);
         }
 
         /**
@@ -95,9 +93,9 @@
         {
             if ($this->hasMedia('avatar')) {
                 return $this->getFirstMedia('avatar')->getUrl('thumbnail');
-            } else {
-                return Vite::asset('resources/assets/admin/media/images/profile/default-avatar.jpg');
             }
+
+            return Vite::asset('resources/assets/admin/media/images/profile/default-avatar.jpg');
         }
 
         /**
@@ -112,16 +110,15 @@
         {
             if ($this->hasMedia('avatar')) {
                 return $this->getFirstMedia('avatar')->getFullUrl('original');
-            } else {
-                return asset('images/default-avatar.jpg');
             }
+
+            return asset('images/default-avatar.jpg');
         }
 
         /**
          * Saves the user's profile avatar.
          *
-         * @param string $file The file to be saved as the profile avatar.
-         *
+         * @param  string $file The file to be saved as the profile avatar.
          * @return string The URL of the saved profile avatar.
          *
          * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist

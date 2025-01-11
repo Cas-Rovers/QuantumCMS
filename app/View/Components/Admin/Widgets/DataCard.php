@@ -48,6 +48,6 @@
          */
         public function render(): View|Closure|string
         {
-            return view('admin.components.widgets.datacard');
+            return view('components.admin.widgets.datacard');
         }
     }

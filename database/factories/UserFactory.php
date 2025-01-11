@@ -9,8 +9,6 @@
     /**
      * A factory class for generating fake data for the @see \App\Models\User model.
      *
-     * @package Database\Factories
-     *
      * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
      */
     class UserFactory extends Factory
@@ -43,7 +41,7 @@
          */
         public function unverified(): static
         {
-            return $this->state(fn (array $attributes) => [
+            return $this->state(fn(array $attributes) => [
                 'email_verified_at' => null,
             ]);
         }

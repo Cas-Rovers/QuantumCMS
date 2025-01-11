@@ -62,7 +62,7 @@
         </div>
         <div class="artwork">
             {{-- Artwork Here (SVG format please) --}}
-            @include('admin.components.svgs.login-art-work')
+            @include('components.admin.svgs.login-art-work')
         </div>
     </div>
 @endsection

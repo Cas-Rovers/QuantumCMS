@@ -23,8 +23,6 @@
      * configuring its behavior. It sets up custom classes for user creation,
      * profile updates, password updates, and password resets. Additionally,
      * it configures rate limiting for login attempts and two-factor authentication.
-     *
-     * @package App\Providers
      */
     class FortifyServiceProvider extends ServiceProvider
     {
@@ -37,16 +35,12 @@
          *
          * @return void
          */
-        public function register(): void
-        {
-            //
-        }
+        public function register(): void {}
 
         /**
          * Determine the rate limiting throttle key for the given request.
          *
-         * @param \Illuminate\Http\Request $request
-         *
+         * @param  Request $request
          * @return string
          */
         protected function throttleKey(Request $request): string
@@ -82,7 +76,7 @@
                     $availableIn = RateLimiter::availableIn($throttleKey);
 
                     return response()->json([
-                        'message' => 'Too many login attempts. Please try again in '.$availableIn.' seconds.',
+                        'message' => 'Too many login attempts. Please try again in ' . $availableIn . ' seconds.',
                     ], 429);
                 }
 
@@ -97,19 +91,18 @@
                         //}
 
                         return $user;
-                    } else {
-                        // Return an inactive user message
-                        return response()->json([
-                            'message' => 'Your account is inactive. Please contact support.',
-                        ], 403);
                     }
-                } else {
-                    RateLimiter::hit($throttleKey);
 
+                    // Return an inactive user message
                     return response()->json([
-                        'message' => 'Invalid login credentials. Please check your email and password.',
-                    ], 401);
+                        'message' => 'Your account is inactive. Please contact support.',
+                    ], 403);
                 }
+                RateLimiter::hit($throttleKey);
+
+                return response()->json([
+                    'message' => 'Invalid login credentials. Please check your email and password.',
+                ], 401);
             });
 
             Fortify::createUsersUsing(CreateNewUser::class);
@@ -117,7 +110,7 @@
             Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
             Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
-            Fortify::loginView(fn () => view('admin.auth.login'));
+            Fortify::loginView(fn() => view('admin.auth.login'));
 
             RateLimiter::for('login', function (Request $request) {
                 $throttleKey = $this->throttleKey($request);
@@ -128,7 +121,7 @@
             RateLimiter::for('two-factor', function (Request $request) {
                 $throttleKey = $this->throttleKey($request);
 
-                return Limit::perMinute(5)->by($throttleKey.'|'.$request->session()->get('login.id'));
+                return Limit::perMinute(5)->by($throttleKey . '|' . $request->session()->get('login.id'));
             });
         }
     }

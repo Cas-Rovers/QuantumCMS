@@ -32,6 +32,6 @@ class SidebarButton extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('admin.components.buttons.sidebar-button');
+        return view('components.admin.buttons.sidebar-button');
     }
 }

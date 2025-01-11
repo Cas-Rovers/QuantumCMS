@@ -30,7 +30,7 @@
         |--------------------------------------------------------------------------
         |
         | PhpStorm also supports the directory `.phpstorm.meta.php/` with arbitrary
-        | files in it, should you need additional files for your project; e.g.
+        | files in it, should you need additional files for your project; for example
         | `.phpstorm.meta.php/laravel_ide_Helper.php'.
         |
         */
@@ -114,15 +114,17 @@
         | Helper files to include
         |--------------------------------------------------------------------------
         |
-        | Include helper files. By default not included, but can be toggled with the
-        | -- helpers (-H) option. Extra helper files can be included.
+        | Include helper files.
+        | By default, not included, but can be toggled with the
+        | -- helpers (-H) option.
+        | Extra helper files can be included.
         |
         */
 
-        'include_helpers' => false,
+        'include_helpers' => true,
 
         'helper_files' => [
-            base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+            base_path() . '/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
         ],
 
         /*
@@ -133,8 +135,8 @@
         | Define in which directories the ide-helper:models command should look
         | for models.
         |
-        | glob patterns are supported to easier reach models in sub-directories,
-        | e.g. `app/Services/* /Models` (without the space).
+        | glob patterns are supported to easier reach models in subdirectories,
+        | for example, `app/Services/* /Models` (without the space).
         |
         */
 
@@ -175,7 +177,7 @@
         | Extra classes
         |--------------------------------------------------------------------------
         |
-        | These implementations are not really extended, but called with magic functions.
+        | These implementations aren't really extended, but called with magic functions.
         |
         */
 
@@ -191,8 +193,9 @@
         | Interface implementations
         |--------------------------------------------------------------------------
         |
-        | These interfaces will be replaced with the implementing class. Some interfaces
-        | are detected by the helpers, others can be listed below.
+        | These interfaces will be replaced with the implementing class.
+        | The helpers
+        | detect some interfaces, others can be listed below.
         |
         */
 
@@ -268,7 +271,7 @@
         |--------------------------------------------------------------------------
         |
         | Use generics syntax within DocBlocks,
-        | e.g. `Collection<User>` instead of `Collection|User[]`.
+        | for example, `Collection<User>` instead of `Collection|User[]`.
         |
         */
         'use_generics_annotations' => true,
@@ -278,9 +281,11 @@
         | Additional relation types
         |--------------------------------------------------------------------------
         |
-        | Sometimes it's needed to create custom relation types. The key of the array
-        | is the relationship method name. The value of the array is the fully-qualified
-        | class name of the relationship, e.g. `'relationName' => RelationShipClass::class`.
+        | Sometimes it has needed to create custom relation types.
+        | The key of the array
+        | is the relationship method name.
+        | The value of the array is the fully qualified
+        | class name of the relationship, for example `'relationName' => RelationShipClass::class`.
         |
         */
         'additional_relation_types' => [],
@@ -294,7 +299,7 @@
         | the proper return type of the relation. The key of the array is the relationship
         | method name. The value of the array is the return type of the relation ('many'
         | or 'morphTo').
-        | e.g. `'relationName' => 'many'`.
+        | for example `'relationName' => 'many'`.
         |
         */
         'additional_relation_return_types' => [],

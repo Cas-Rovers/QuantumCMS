@@ -10,8 +10,6 @@
      *
      * This class serves as the main entry point for database seeding.
      * It calls other seeder classes to populate the database with default data.
-     *
-     * @package Database\Seeders
      */
     class DatabaseSeeder extends Seeder
     {

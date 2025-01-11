@@ -2,6 +2,7 @@
 
     namespace App\Providers;
 
+    use Illuminate\Pagination\Paginator;
     use Illuminate\Support\Facades\Blade;
     use Illuminate\Support\Facades\Gate;
     use Illuminate\Support\ServiceProvider;
@@ -11,8 +12,6 @@
      *
      * This service provider is responsible for registering and bootstrapping
      * application services for the App namespace.
-     *
-     * @package App\Providers
      */
     class AppServiceProvider extends ServiceProvider
     {
@@ -22,10 +21,7 @@
          * This method is called after all service providers have been registered,
          * and is used to register any application services with the IoC container.
          */
-        public function register(): void
-        {
-            //
-        }
+        public function register(): void {}
 
         /**
          * Bootstrap any application services.
@@ -45,9 +41,15 @@
             Blade::componentNamespace('App\\View\\Components\\Admin', 'admin');
             Blade::componentNamespace('App\\View\\Components\\Frontend', 'frontend');
 
-            view()->composer('admin.components.language-switcher', function ($view) {
+            view()->composer('components.admin.language-switcher', function ($view) {
                 $view->with('current_locale', app()->getLocale());
                 $view->with('supported_locales', config('app.supported_locales'));
             });
+
+            if (request()->is('admin/**')) {
+                Paginator::useBootstrapFive();
+            } else {
+                Paginator::useTailwind();
+            }
         }
     }
