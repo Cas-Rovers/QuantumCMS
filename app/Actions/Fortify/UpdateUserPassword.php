@@ -14,7 +14,7 @@
         /**
          * Validate and update the user's password.
          *
-         * @param \App\Models\User      $user
+         * @param User                  $user
          * @param array<string, string> $input
          *
          * @throws \Illuminate\Validation\ValidationException

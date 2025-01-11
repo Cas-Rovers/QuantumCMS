@@ -3,7 +3,7 @@
     return [
         'auth' => [
             'login' => [
-                'logo_alt' => 'Logo of '.config('app.name'),
+                'logo_alt' => 'Logo of ' . config('app.name'),
                 'header' => 'Login',
                 'email' => 'Email',
                 'password' => 'Password',

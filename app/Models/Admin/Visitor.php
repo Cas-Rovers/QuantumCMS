@@ -88,9 +88,8 @@
          * If the previous value is zero, this method will return 100, indicating a 100%
          * increase.
          *
-         * @param int $current  The current value.
-         * @param int $previous The previous value.
-         *
+         * @param  int       $current  The current value.
+         * @param  int       $previous The previous value.
          * @return float|int The percentage change as a float.
          */
         public static function percentageChange(int $current, int $previous): float|int

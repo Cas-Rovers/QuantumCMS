@@ -10,15 +10,14 @@
         /**
          * Handle the locale change request.
          *
-         * @param string $locale
-         *
-         * @return \Illuminate\Http\RedirectResponse
+         * @param  string           $locale
+         * @return RedirectResponse
          */
         public function language(string $locale): RedirectResponse
         {
             $supportedLocales = array_values(config('app.supported_locales'));
 
-            if (! in_array($locale, $supportedLocales)) {
+            if (!in_array($locale, $supportedLocales)) {
                 $locale = 'en'; // Fallback to default
             }
 

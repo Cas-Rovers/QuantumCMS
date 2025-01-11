@@ -13,7 +13,7 @@
         /**
          * Validate and update the given user's profile information.
          *
-         * @param \App\Models\User      $user
+         * @param User                  $user
          * @param array<string, string> $input
          *
          * @throws \Illuminate\Validation\ValidationException

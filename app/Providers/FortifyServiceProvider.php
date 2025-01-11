@@ -85,10 +85,10 @@
                         RateLimiter::clear($throttleKey);
 
                         // (Optional) Check if 2FA is enabled for the user
-                        //if ($user->two_factor_enabled) {
-                        //// Perform two-factor authentication checks here,
-                        //// for example, send OTP, verify code, and so on.
-                        //}
+                        // if ($user->two_factor_enabled) {
+                        // // Perform two-factor authentication checks here,
+                        // // for example, send OTP, verify code, and so on.
+                        // }
 
                         return $user;
                     }

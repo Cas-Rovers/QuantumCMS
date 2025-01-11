@@ -14,7 +14,7 @@
         /**
          * Validate and reset the user's forgotten password.
          *
-         * @param \App\Models\User      $user
+         * @param User                  $user
          * @param array<string, string> $input
          *
          * @throws \Illuminate\Validation\ValidationException

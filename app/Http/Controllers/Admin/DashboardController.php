@@ -13,7 +13,7 @@
         /**
          * Show the admin dashboard.
          *
-         * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+         * @return Factory|View|Application
          */
         public function index(): Factory|View|Application
         {

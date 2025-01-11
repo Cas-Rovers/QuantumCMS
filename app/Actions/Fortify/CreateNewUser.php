@@ -15,9 +15,8 @@
         /**
          * Validate and create a newly registered user.
          *
-         * @param array<string, string> $input
-         *
-         * @return \App\Models\User
+         * @param  array<string, string> $input
+         * @return User
          *
          * @throws \Illuminate\Validation\ValidationException
          */
