@@ -1,3 +1,5 @@
+@props(['route' => 'admin.dashboard', 'type' => 'solid', 'icon' => 'code', 'label' => 'admin.dashboard.sidebar.buttons.default_label'])
+
 <ul class="nav nav-pills flex-column">
     <li class="nav-item">
         <a href="{{ route($route) }}"

@@ -7,7 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-3">
-            <x-admin::Widgets.DataCard
+            <x-admin.widgets.datacard
                 dataCardType="visitors"
                 :title="__('admin.dashboard.widgets.visitors.title')"
                 :cardData="$totalVisitors"

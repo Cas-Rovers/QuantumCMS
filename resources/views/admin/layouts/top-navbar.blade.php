@@ -3,7 +3,7 @@
         <div class="d-inline-flex w-100">
             <div class="ms-auto d-inline-flex align-items-center position-relative gap-4">
                 <!-- Language Switcher -->
-                <x-admin::LanguageSwitcher/>
+                <x-admin.language-switcher/>
                 <!-- End Language Switcher -->
 
                 <!-- Profile Info -->
@@ -27,14 +27,16 @@
                                  class="position-absolute end-0 mt-4 py-2 rounded-3 z-3 bg-secondary shadow profile-dropdown-wrapper"
                                  style="width: 175px;">
                                 <div class="profile-dropdown">
-                                    <a href="#" class="d-block px-2 py-1 text-decoration-none mw-100 user-dropdown-hover text-white">
+                                    <a href="#"
+                                       class="d-block px-2 py-1 text-decoration-none mw-100 user-dropdown-hover text-white">
                                         <i class="fa fa-cog me-2"></i>
                                         {{ __('admin.top_navbar.profile_information.settings') }}
                                     </a>
                                 </div>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="border-0 user-dropdown-hover bg-secondary w-100 py-1 text-start px-2 text-danger text-decoration-none">
+                                    <button type="submit"
+                                            class="border-0 user-dropdown-hover bg-secondary w-100 py-1 text-start px-2 text-danger text-decoration-none">
                                         <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>
                                         {{ __('admin.top_navbar.profile_information.logout') }}
                                     </button>

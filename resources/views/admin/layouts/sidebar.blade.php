@@ -3,17 +3,18 @@
         <a href="{{ route('admin.dashboard') }}" class="logo">
             <span class="logo text-primary">
                 <!-- Logo SVG -->
-                @include('components.admin.svgs.logo')
+                <x-admin.svgs.logo/>
                 <!-- End Logo SVG -->
             </span>
         </a>
     </div>
     <div class="nav-content d-flex flex-column gap-3">
         @can('view dashboard')
-            <x-admin::SideBarButton route="admin.dashboard" icon="chart-line" label="admin.sidebar.anchors.dashboard"/>
+            <x-admin.buttons.sidebar-button route="admin.dashboard" icon="chart-line"
+                                            label="admin.sidebar.anchors.dashboard"/>
         @endcan
         @can('view users')
-            <x-admin::SideBarButton route="admin.users.index" icon="users" label="admin.sidebar.anchors.users"/>
+            <x-admin.buttons.sidebar-button route="admin.users.index" icon="users" label="admin.sidebar.anchors.users"/>
         @endcan
     </div>
     <!-- /.nav-content -->
