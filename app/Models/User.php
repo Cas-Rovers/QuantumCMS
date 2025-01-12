@@ -112,7 +112,7 @@
                 return $this->getFirstMedia('avatar')->getFullUrl('original');
             }
 
-            return asset('images/default-avatar.jpg');
+            return Vite::asset('resources/assets/admin/media/images/profile/default-avatar.jpg');
         }
 
         /**
