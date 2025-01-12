@@ -27,5 +27,6 @@
         @endguest
     </main>
     @vite('resources/assets/admin/js/app.js')
+    @stack('scripts')
 </body>
 </html>
